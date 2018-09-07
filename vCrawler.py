@@ -52,7 +52,7 @@ def insertDB(db, cursor, insert_arr):
     try:
         cursor.executemany("INSERT INTO star (star_id, star_name, sex, img_url) VALUES (%s,%s,%s,%s) \
         ON DUPLICATE KEY UPDATE star_name=VALUES(star_name),sex=VALUES(sex),img_url=VALUES(img_url)", insert_arr)
-    #    db.commit()
+        db.commit()
     except Exception as e:
         print(repr(e))
         db.rollback()
